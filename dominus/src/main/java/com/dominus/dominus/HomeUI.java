@@ -43,12 +43,8 @@ public class HomeUI extends UI {
             layout.addComponent(new Label("Thanks " + search.getValue() 
                     + ", it works!"));
         });
-        
-        ThemeResource doormatresource = new ThemeResource("img/doormat.png");
-        Image doormat = new Image("doormat", doormatresource);
-       
-        
-        searchbar.addComponents(search, button, doormat);
+                
+        searchbar.addComponents(search, button);
         layout.addComponent(searchbar);
         layout.setComponentAlignment(searchbar, Alignment.MIDDLE_CENTER);        
 
