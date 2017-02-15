@@ -31,7 +31,7 @@ public class HomeUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        final AbsoluteLayout layout = new AbsoluteLayout();
+        final HorizontalLayout layout = new HorizontalLayout();
         final HorizontalLayout searchbar = new HorizontalLayout();
         
         final TextField search = new TextField();
@@ -46,10 +46,14 @@ public class HomeUI extends UI {
         
         ThemeResource doormatresource = new ThemeResource("img/doormat.png");
         Image doormat = new Image("doormat", doormatresource);
+       
         
-        searchbar.addComponents(search, button);
-        layout.addComponent(doormat, "left: 25%; right: 25%;" + "top: 20%; bottom: 20%;");
-        layout.addComponent(searchbar, "left: 25%; right: 25%;" + "top: 20%; bottom: 20%;");
+        searchbar.addComponents(search, button, doormat);
+        layout.addComponent(searchbar);
+        layout.setComponentAlignment(searchbar, Alignment.MIDDLE_CENTER);        
+
+        layout.setMargin(true);
+        layout.setSpacing(true);
         layout.setSizeFull();
         
         setContent(layout);
