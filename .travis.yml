@@ -3,3 +3,11 @@ install:
 - mvn install
 jdk:
 - oraclejdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure: crdf9L+KW3q7MNC4angj4ptyyhG8aA+X8C/IzD8VgR+J5bwsAVHIB8EI+h3UJMnAMtPq8LdHilSI7c4tjG0CvmjqA0U9PdgNlj4Q4OyLZsqlybby7cGBglZ69EPqFNX2smh1diR5TMJdYmCnFREnfAS/GymcItCFhxpuVov1S+Q/eO3ETSDM0Hg5lWt7KLqOKguH/tm4JMfkznaZjY/f9lp/0Sqrqm7n/MONk8+5UKXcGOyXiLFhuhAZ4xoMdxBkAEIy/mjN7BoxxX8XjyE3tdOEGXsMvgunZgCiMqZuieZG5dsBNPuPJ2rH62cFvVxGrvGaEclJ77LpZaAtXQ9ADFmIsFyUsP4LoVHxg3p+J6swLQ+BLVNoweJjUr11/AE1GlbMqPmPKb9G38Yn7O79CuAgCcusgbQwm88mtgNnWyLBCyLd7dNjoxU7KxQvt579x/d3zI8Hk/zXWQjPMCZ1AkLyfcq4U2B+MWHNkWThYzLdoGTmcrYEbeD0yOVEUoWzWOxIUsbyGbCT67Cv7OSCRw7jVZpM5AQWjtU44fL/fcfXORiMoJb3n0YWxJ0RXGqxYVzLLONHe69+F5RtuiNxOu+AB+AOB4bLMTIOfzQ5GQs4zlNUFPwGYhdi5hHdjYrRx3Q2IqCPDeTnetBesf1xq/ZCSKE/GoA+4fxc38w/k78=
+  app: dominus-app
+  on:
+    repo: mnosoudi/dominus
+    branch: searchbar_background
