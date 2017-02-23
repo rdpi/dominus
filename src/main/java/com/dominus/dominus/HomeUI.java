@@ -39,10 +39,6 @@ public class HomeUI extends UI {
         search.setInputPrompt("Seach Landlords");
         
         Button button = new Button("Search");
-        button.addClickListener( e -> {
-            layout.addComponent(new Label("Thanks " + search.getValue() 
-                    + ", it works!"));
-        });
                 
         searchbar.addComponents(search, button);
         layout.addComponent(searchbar);
