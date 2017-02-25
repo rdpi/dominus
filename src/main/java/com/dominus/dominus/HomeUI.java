@@ -1,7 +1,9 @@
 package com.dominus.dominus;
 
 import javax.servlet.annotation.WebServlet;
-import java.io.*; 
+import java.io.*;
+import java.security.NoSuchAlgorithmException;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.FileResource;
@@ -44,7 +46,14 @@ public class HomeUI extends UI {
       	final TextField password = new TextField();
       	password.setInputPrompt("Password");
       	
-      	Button login = new Button("Login", event -> authorizer.authorize(username.getValue(), password.getValue()));
+      	Button login = new Button("Login", event -> {
+			try {
+				authorizer.authorize(username.getValue(), password.getValue());
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
       
         topbar.addComponents(username,password,login);
       	topbar.setComponentAlignment(login, Alignment.MIDDLE_RIGHT);
