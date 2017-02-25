@@ -14,19 +14,19 @@ public class loginTest extends TestCase {
 	
 	
 	@Test()
-	public void testNullInput1() throws NullPointerException {
+	public void testNullInput1() throws invalidInputException {
 	Authorizer testAuthorizer = new Authorizer(null, "2383726");
 		
 	}
 	
 	@Test()
-	public void testNullInput2() throws NullPointerException {
+	public void testNullInput2() throws invalidInputException {
 	Authorizer testAuthorizer = new Authorizer("hiiiiii", null);
 		
 	}
 	
 	@Test()
-	public void testNullInput3() throws NullPointerException {
+	public void testNullInput3() throws invalidInputException {
 	Authorizer testAuthorizer = new Authorizer(null, null);
 		
 	}
