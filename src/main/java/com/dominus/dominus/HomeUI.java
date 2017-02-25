@@ -32,53 +32,36 @@ import com.vaadin.ui.VerticalLayout;
 public class HomeUI extends UI {
 
     @Override
-    protected void init(VaadinRequest vaadinRequest) 
-    {
-        final HorizontalLayout layout = new HorizontalLayout();
+    protected void init(VaadinRequest vaadinRequest) {
+        final VerticalLayout layout = new VerticalLayout();
         final HorizontalLayout searchbar = new HorizontalLayout();
+      	final HorizontalLayout topbar = new HorizontalLayout();
+        final HorizontalLayout bar2 = new HorizontalLayout();
+      	Authorizer authorizer = new Authorizer();
+      	
+      	final TextField username = new TextField();
+      	username.setInputPrompt("Username");
+      	final TextField password = new TextField();
+      	password.setInputPrompt("Password");
+      	
+      	Button login = new Button("Login", event -> authorizer.authorize(username.getValue(), password.getValue()));
+      
+        topbar.addComponents(username,password,login);
+      	topbar.setComponentAlignment(login, Alignment.MIDDLE_RIGHT);
+      	topbar.setComponentAlignment(password, Alignment.MIDDLE_RIGHT);
+        topbar.setComponentAlignment(username, Alignment.MIDDLE_RIGHT);
+        
         final TextField search = new TextField();
-        
-        //Label that tests the buttons ~ delete later
-        final Label selection = new Label("-");
-        
-        //Initializing the navbar menu
-        MenuBar navMenu = new MenuBar();
-        layout.addComponent(navMenu);
-        
-        //This label simply gives feedback on which button has been clicked
-        layout.addComponent(selection);
-        
-        //Defines a command that will execute when the signup/login button is clicked
-        //Later on, these commands need to redirect the user to the appropriate pages
-        MenuBar.Command mycommand = new MenuBar.Command() 
-        {
-            public void menuSelected(MenuItem selectedItem) 
-            {
-                selection.setValue("Selected " +
-                                   selectedItem.getText() +
-                                   " from menu.");
-            }
-        };
-        
-        //Adding a Signup Button to the menu
-        navMenu.addItem("Signup", null, mycommand);
-        
-        //Adding a Login Button to the menu 
-        navMenu.addItem("Login", null, mycommand);
-        
         search.setWidth("500");
-        search.setInputPrompt("Seach Landlords");
+        search.setInputPrompt("Search Landlords");
+        
         Button button = new Button("Search");
                 
         searchbar.addComponents(search, button);
-        layout.addComponent(searchbar);
-        layout.setComponentAlignment(searchbar, Alignment.MIDDLE_CENTER);      
-       
-        
-        
-        //Setting the alignment for the menu buttons
-        //layout.setComponentAlignment(navMenu, Alignment.TOP_RIGHT);
-        
+        layout.addComponents(topbar, searchbar);
+      	layout.setComponentAlignment(topbar, Alignment.TOP_RIGHT);
+        layout.setComponentAlignment(searchbar, Alignment.TOP_CENTER);        
+
         layout.setMargin(true);
         layout.setSpacing(true);
         layout.setSizeFull();
