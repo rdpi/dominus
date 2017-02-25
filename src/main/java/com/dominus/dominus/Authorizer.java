@@ -40,7 +40,7 @@ public class Authorizer
 			 errorMessage = "Please make sure to fill out all of the fields";
 			 loginError(errorMessage);
 		 }*/
-		 Pattern pattern = Pattern.compile("\\b[a-zA-Z][a-zA-Z0-9\\-._]{8,}\\b");
+		 Pattern pattern = Pattern.compile("\\b[a-zA-Z][a-zA-Z0-9\\-._]{7,}\\b");
 		 Matcher unamematcher = pattern.matcher(username);
 		 Matcher pwdmatcher = pattern.matcher(password);
 		 
