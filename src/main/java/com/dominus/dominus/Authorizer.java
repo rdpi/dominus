@@ -24,11 +24,12 @@ public class Authorizer
 	 }
 	  
 	 
-	 public void authorize(String username, String password) throws NoSuchAlgorithmException
+	 public boolean authorize(String username, String password) throws NoSuchAlgorithmException
 	 {
 		 Pattern pattern = Pattern.compile("\\b[a-zA-Z][a-zA-Z0-9\\-._]{7,}\\b");
 		 Matcher unamematcher = pattern.matcher(username);
 		 Matcher pwdmatcher = pattern.matcher(password);
+		 
 		 
 		 //Displays success message if there are no errors
 		 try
@@ -42,10 +43,15 @@ public class Authorizer
 			 String hashedpass;
 			 hashedpass = hashIt(password);
 			 login(username, hashedpass);
+			 //Returns true if login is good
+			 return true;
+			 
 		 }
 		 catch(InvalidInputException ex)
 		 {
 			 loginError("Invalid username or password");
+			 //Returns false if there was an error
+			 return false;
 		 }
 		 
 		 
