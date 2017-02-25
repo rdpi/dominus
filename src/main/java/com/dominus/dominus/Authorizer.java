@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.vaadin.server.Page;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.shared.Position;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TextField;
@@ -25,21 +26,6 @@ public class Authorizer
 	 
 	 public void authorize(String username, String password) throws NoSuchAlgorithmException
 	 {
-		 		 
-		 //System.out.println("Username: " + username.getValue());
-		 //System.out.println("Password: " + password.getValue());
-		 
-		 //String errorMessage = "";
-		 //boolean error = false;
-		 
-		 //Checks if value is null or empty, returns error notification
-		 // "",null and empty are different things apparenly 
-		 /*if(username.getValue() == "" || username.getValue()==null || username.isEmpty() || password.getValue() == "" || password.getValue()==null || password.isEmpty())
-		 {
-			 error = true;
-			 errorMessage = "Please make sure to fill out all of the fields";
-			 loginError(errorMessage);
-		 }*/
 		 Pattern pattern = Pattern.compile("\\b[a-zA-Z][a-zA-Z0-9\\-._]{7,}\\b");
 		 Matcher unamematcher = pattern.matcher(username);
 		 Matcher pwdmatcher = pattern.matcher(password);
@@ -49,14 +35,13 @@ public class Authorizer
 		 {
 			 if(!unamematcher.find() || !pwdmatcher.find()){
 					throw new InvalidInputException();
-		}
-		loginSuccess();
+			 }
 			//hash password
 			//check username and hashed password against database
 			//if they match, login (bool?)	
-		String returnValue;
-		returnValue = hashIt(password);
-		System.out.println(returnValue);
+			 String hashedpass;
+			 hashedpass = hashIt(password);
+			 login(username, hashedpass);
 		 }
 		 catch(InvalidInputException ex)
 		 {
@@ -90,14 +75,27 @@ public class Authorizer
 
 	 
 	 
-	 public void loginSuccess()
+	 public void login(String username, String password)
 	 {
-		 Notification notif = new Notification(
-				    "Login",
-				    "Login was Successful",
-				    Notification.Type.HUMANIZED_MESSAGE);
-		 notif.setDelayMsec(2000);
-		 notif.setPosition(Position.TOP_LEFT);
-		 notif.show(Page.getCurrent());
+		 //dummy database
+		 try {
+			String hashedpass = hashIt("test12345");
+			if(username.equals("username123") && password.equals(hashedpass)){
+				VaadinSession.getCurrent().setAttribute("user", username);
+				Notification notif = new Notification(
+					    "Login",
+					    "Login was Successful",
+					    Notification.Type.HUMANIZED_MESSAGE);
+				notif.setDelayMsec(2000);
+				notif.setPosition(Position.TOP_LEFT);
+				notif.show(Page.getCurrent());
+			}
+			else
+				loginError("Username and Password do not match");
+		 }
+		catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
 	 }
 }
