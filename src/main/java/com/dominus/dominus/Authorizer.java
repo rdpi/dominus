@@ -1,6 +1,13 @@
 package com.dominus.dominus;
 
-
+import java.util.Base64;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +23,7 @@ public class Authorizer
 	 }
 	  
 	 
-	 public void authorize(String username, String password)
+	 public void authorize(String username, String password) throws NoSuchAlgorithmException
 	 {
 		 		 
 		 //System.out.println("Username: " + username.getValue());
@@ -46,12 +53,18 @@ public class Authorizer
 		loginSuccess();
 			//hash password
 			//check username and hashed password against database
-			//if they match, login (bool?)
+			//if they match, login (bool?)	
+		String returnValue;
+		returnValue = hashIt(password);
+		System.out.println(returnValue);
 		 }
 		 catch(InvalidInputException ex)
 		 {
 			 loginError("Invalid username or password");
-		 }		  
+		 }
+		 
+		 
+		 
 	 }
 	 
 	 
@@ -65,6 +78,17 @@ public class Authorizer
 		 notif.setPosition(Position.TOP_LEFT);
 		 notif.show(Page.getCurrent());
 	 }
+	 
+
+	 public String hashIt(String b) throws NoSuchAlgorithmException{
+			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+			messageDigest.update(b.getBytes());
+			String encryptedString = new String(messageDigest.digest());
+			return encryptedString;
+		}
+	
+
+	 
 	 
 	 public void loginSuccess()
 	 {
