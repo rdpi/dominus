@@ -20,8 +20,10 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -43,8 +45,8 @@ public class HomeUI extends UI {
       	
       	final TextField username = new TextField();
       	username.setInputPrompt("Username");
-      	final TextField password = new TextField();
-      	password.setInputPrompt("Password");
+      	final PasswordField password = new PasswordField("Password");
+      	//password.setInputPrompt("Password");
       	
       	Button login = new Button("Login", event -> {
 			try {
