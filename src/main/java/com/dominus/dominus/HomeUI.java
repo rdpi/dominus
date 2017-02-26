@@ -1,6 +1,6 @@
 package com.dominus.dominus;
 
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebServlet; 
 import java.io.*;
 import java.security.NoSuchAlgorithmException;
 
@@ -20,6 +20,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
@@ -43,8 +44,8 @@ public class HomeUI extends UI {
       	
       	final TextField username = new TextField();
       	username.setInputPrompt("Username");
-      	final TextField password = new TextField();
-      	password.setInputPrompt("Password");
+      	final PasswordField password = new PasswordField();
+      	//password.setInputPrompt("Password");
       	
       	Button login = new Button("Login", event -> {
 			try {
