@@ -2,7 +2,6 @@ package com.dominus.dominus;
 
 public class InvalidInputException extends Exception {
 
-
 	public InvalidInputException () {
 
     }
