@@ -53,4 +53,18 @@ public class loginTest extends TestCase {
 		Authorizer testAuthorizer = new Authorizer();
 		testAuthorizer.authorize("us9090090", "bbdf43338");	
 	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testInvalidChar1() throws NoSuchAlgorithmException {
+		Authorizer testAuthorizer = new Authorizer();
+		testAuthorizer.authorize("********", "test12345");	
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testInvalidChar2() throws NoSuchAlgorithmException {
+		Authorizer testAuthorizer = new Authorizer();
+		testAuthorizer.authorize("username123", "********");	
+	}
+	
+	
 }
