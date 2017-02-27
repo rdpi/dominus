@@ -29,6 +29,8 @@ public class loginTest extends TestCase {
 	@Mock
 	private Authorizer AuthorizerMocked;
 	
+	
+	//This test checks for a null username with a valid password combination
 	@Test(expected = NullPointerException.class)
 	public void testNullInput1() throws NoSuchAlgorithmException {
 		Authorizer testAuthorizer = new Authorizer();
@@ -36,21 +38,25 @@ public class loginTest extends TestCase {
 		Mockito.when(AuthorizerMocked.hashIt("df43338")).thenReturn("");
 	}
 	
+	//This test checks for a null password with a valid username combination
 	@Test(expected = NullPointerException.class)
 	public void testNullInput2() throws NoSuchAlgorithmException {
 		Authorizer testAuthorizer = new Authorizer();
 		testAuthorizer.authorize("bbdf43338", null);	
 	}
 	
+	//This test checks for null inputs for both the username and password
 	@Test(expected = NullPointerException.class)
 	public void testNullInput3() throws NoSuchAlgorithmException {
 		Authorizer testAuthorizer = new Authorizer();
 		testAuthorizer.authorize(null, null);
 	}
 	
+	//This test checks for a valid input for both username and password
 	@Test
 	public void testNullInput4() throws NoSuchAlgorithmException {
 		Authorizer testAuthorizer = new Authorizer();
 		testAuthorizer.authorize("us9090090", "bbdf43338");	
 	}
+	
 }
