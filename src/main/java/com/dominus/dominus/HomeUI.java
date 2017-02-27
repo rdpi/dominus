@@ -3,6 +3,7 @@ package com.dominus.dominus;
 import javax.servlet.annotation.WebServlet; 
 import java.io.*;
 import java.security.NoSuchAlgorithmException;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.FileResource;
@@ -30,14 +31,12 @@ import com.vaadin.ui.VerticalLayout;
  * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be 
  * overridden to add component to the user interface and initialize non-component functionality.
  */
-
 @Theme("mytheme")
-
 public class HomeUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-    	final VerticalLayout layout = new VerticalLayout();
+        final VerticalLayout layout = new VerticalLayout();
         final HorizontalLayout searchbar = new HorizontalLayout();
       	final HorizontalLayout topbar = new HorizontalLayout();
         final HorizontalLayout bar2 = new HorizontalLayout();
@@ -46,7 +45,7 @@ public class HomeUI extends UI {
       	final TextField username = new TextField();
       	username.setInputPrompt("Username");
       	final PasswordField password = new PasswordField();
-      	password.setInputPrompt("Password");
+      	//password.setInputPrompt("Password");
       	
       	Button login = new Button("Login", event -> {
 			try {
@@ -57,17 +56,21 @@ public class HomeUI extends UI {
 			}
 		});
       
+      	//alignment of UI elements at the top of the page
         topbar.addComponents(username,password,login);
       	topbar.setComponentAlignment(login, Alignment.MIDDLE_RIGHT);
       	topbar.setComponentAlignment(password, Alignment.MIDDLE_RIGHT);
         topbar.setComponentAlignment(username, Alignment.MIDDLE_RIGHT);
         
+        //search bar design
         final TextField search = new TextField();
         search.setWidth("500");
         search.setInputPrompt("Search Landlords");
         
+        //search button
         Button button = new Button("Search");
-                
+        
+        //add UI elemtns to layout objects
         searchbar.addComponents(search, button);
         layout.addComponents(topbar, searchbar);
       	layout.setComponentAlignment(topbar, Alignment.TOP_RIGHT);
@@ -83,6 +86,5 @@ public class HomeUI extends UI {
     @WebServlet(urlPatterns = "/*", name = "HomeServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = HomeUI.class, productionMode = false)
     public static class HomeServlet extends VaadinServlet {
-    	
     }
 }

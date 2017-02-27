@@ -1,6 +1,8 @@
 package com.dominus.dominus;
 
+//exception class for invalid input
 public class InvalidInputException extends Exception {
+
 
 	public InvalidInputException () {
 
