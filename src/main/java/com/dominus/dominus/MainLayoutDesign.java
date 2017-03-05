@@ -23,7 +23,6 @@ public class MainLayoutDesign extends HorizontalLayout {
 	protected CssLayout menu;
 	protected Button search;
 	protected Button signup;
-	protected CssLayout content;
 	protected Panel scroll_panel;
 
 	public MainLayoutDesign() {
