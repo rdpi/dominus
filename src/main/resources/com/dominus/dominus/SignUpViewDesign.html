@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="7.7.0">
+ </head> 
+ <body> 
+  <vaadin-css-layout style-name="form-template" responsive size-full> 
+   <vaadin-label style-name="title" plain-text>
+     Sign Up for Dominus 
+   </vaadin-label> 
+   <vaadin-css-layout caption="Personal info" style-name="form-section"> 
+    <vaadin-css-layout style-name="input-group"> 
+     <vaadin-css-layout style-name="input-wrapper align-bottom"> 
+      <vaadin-combo-box text-input-allowed="false" input-prompt="Title" width="100px" _id="title"> 
+       <option>Mr.</option> 
+       <option>Mrs.</option> 
+       <option>Miss</option> 
+      </vaadin-combo-box> 
+     </vaadin-css-layout> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-text-field caption="First name" _id="firstName"></vaadin-text-field> 
+     </vaadin-css-layout> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-text-field caption="Last name" _id="lastName"></vaadin-text-field> 
+     </vaadin-css-layout> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-text-field caption="Other names" input-prompt="(optional)" _id="otherNames"></vaadin-text-field> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+    <vaadin-css-layout style-name="input-group"> 
+     <vaadin-css-layout style-name="input-wrapper" width-full> 
+      <vaadin-horizontal-layout caption="Date of birth" spacing _id="dateOfBirthWrapper"> 
+       <vaadin-text-field input-prompt="MM" width="50px" _id="month"></vaadin-text-field> 
+       <vaadin-text-field input-prompt="DD" width="50px" _id="day"></vaadin-text-field> 
+       <vaadin-text-field input-prompt="YYYY" width="80px" _id="year"></vaadin-text-field> 
+      </vaadin-horizontal-layout> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+    <vaadin-css-layout> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-combo-box _id="language"> 
+       <option>English</option> 
+       <option>Finnish</option> 
+       <option>German</option> 
+       <option>Swedish</option> 
+       <option>Russian</option> 
+       <option>Polish</option> 
+      </vaadin-combo-box> 
+      <vaadin-button icon="fonticon://FontAwesome/f067" style-name="borderless" plain-text _id="add">
+        Add 
+      </vaadin-button> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+    <vaadin-css-layout style-name="input-group"> 
+     <vaadin-css-layout style-name="border"> 
+      <vaadin-css-layout style-name="input-wrapper"> 
+       <vaadin-text-field caption="Job title" _id="jobTitle"></vaadin-text-field> 
+      </vaadin-css-layout> 
+      <vaadin-css-layout style-name="input-wrapper"> 
+       <vaadin-text-field caption="Employer" _id="employer"></vaadin-text-field> 
+      </vaadin-css-layout> 
+      <vaadin-css-layout style-name="input-wrapper"> 
+       <vaadin-popup-date-field caption="Employed since" width="160px" _id="employedSince"></vaadin-popup-date-field> 
+      </vaadin-css-layout> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+   </vaadin-css-layout> 
+   <vaadin-css-layout caption="Contact info" style-name="form-section caption-left"> 
+    <vaadin-css-layout style-name="input-group" width-full> 
+     <vaadin-css-layout style-name="input-wrapper" _id="phoneNumberWrapper"> 
+      <vaadin-horizontal-layout caption="Phone number" spacing> 
+       <vaadin-text-field input-prompt="(+1)" width="60px" _id="countryCode"></vaadin-text-field> 
+       <vaadin-text-field _id="phoneNumber"></vaadin-text-field> 
+      </vaadin-horizontal-layout> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+    <vaadin-css-layout style-name="input-group" width-full> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-text-field caption="E-mail address" width="300px" _id="email"></vaadin-text-field> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+    <vaadin-css-layout style-name="input-group" width-full> 
+     <vaadin-css-layout style-name="text-wrapper border"> 
+      <vaadin-label style-name="small"> 
+       <span class="v-icon FontAwesome"></span> To have caption positioned to the left side of the element. Add class name "caption-left" to the elements wrapper. 
+      </vaadin-label> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+   </vaadin-css-layout> 
+   <vaadin-css-layout style-name="form-section" width-full> 
+    <vaadin-css-layout style-name="input-group" width-full> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-option-group caption="I would like to have a reply to my feedback" _id="query"> 
+       <option>Yes</option> 
+       <option>No</option> 
+       <option>Maybe</option> 
+      </vaadin-option-group> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+   </vaadin-css-layout> 
+   <vaadin-css-layout style-name="form-section" width-full> 
+    <vaadin-css-layout style-name="input-group" width-full> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-horizontal-layout> 
+       <vaadin-check-box caption="I agree the" _id="checkAgree" :middle></vaadin-check-box> 
+       <vaadin-label size-auto>
+         &nbsp; 
+       </vaadin-label> 
+       <vaadin-link caption="terms" _id="linkTerms" :middle :right></vaadin-link> 
+      </vaadin-horizontal-layout> 
+     </vaadin-css-layout> 
+     <vaadin-css-layout style-name="input-wrapper"> 
+      <vaadin-horizontal-layout spacing> 
+       <vaadin-button style-name="primary" plain-text _id="submit">
+         Submit 
+       </vaadin-button> 
+       <vaadin-button plain-text _id="cancel">
+         Cancel 
+       </vaadin-button> 
+      </vaadin-horizontal-layout> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+   </vaadin-css-layout> 
+  </vaadin-css-layout>  
+ </body>
+</html>

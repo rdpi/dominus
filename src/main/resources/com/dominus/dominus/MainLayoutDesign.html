@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="7.7.0">
+ </head> 
+ <body> 
+  <vaadin-horizontal-layout style-name="app-shell" responsive size-full> 
+   <vaadin-css-layout style-name="navigation-bar-container" width="200px" height-full :middle> 
+    <vaadin-css-layout style-name="navigation-bar" size-full> 
+     <vaadin-css-layout style-name="navigation" width-full _id="menu"> 
+      <vaadin-button style-name="borderless" width-full plain-text _id="search">
+        Search 
+      </vaadin-button> 
+      <vaadin-button style-name="borderless" width-full plain-text _id="signup">
+        Sign Up 
+      </vaadin-button> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+   </vaadin-css-layout> 
+   <vaadin-panel size-auto></vaadin-panel> 
+   <vaadin-vertical-layout style-name="content-container" responsive :expand> 
+    <vaadin-css-layout size-full _id="content" :expand></vaadin-css-layout> 
+   </vaadin-vertical-layout> 
+   <vaadin-panel style-name="scroll-panel" responsive size-full _id="scroll_panel"></vaadin-panel> 
+  </vaadin-horizontal-layout>  
+ </body>
+</html>
