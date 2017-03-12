@@ -6,6 +6,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.declarative.Design;
 
 /** 
@@ -23,6 +24,9 @@ public class MainLayoutDesign extends HorizontalLayout {
 	protected CssLayout menu;
 	protected Button search;
 	protected Button signup;
+	protected TextField username;
+	protected TextField password;
+	protected Button login;
 	protected Panel scroll_panel;
 
 	public MainLayoutDesign() {
